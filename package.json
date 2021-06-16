@@ -1,0 +1,15 @@
+{
+  "name": "simple-discord-commands",
+  "version": "1.0.0",
+  "description": "a set of simple discord commands to make setting up a bot easier",
+  "main": "index.js",
+  "scripts": {
+    "run": "node index.js"
+  },
+  "author": "a1cd",
+  "license": "MIT",
+  "dependencies": {
+    "discord-made-siple": "^1.0.0",
+    "discord.js": "^12.5.3"
+  }
+}
