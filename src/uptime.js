@@ -38,7 +38,7 @@ function uptimeCommand(inp, msg, cmd) {
       return (tdays.toString()+" days and "+timeList.join(":")+" ("+nameList.join(":")+")")
     }
   }
-  msg.reply("i have been up for "+msToTime(bot.uptime))
+  msg.reply("i have been up for "+msToTime(cmd.bot.uptime))
 }
 /**
  * @type {Cmd}
