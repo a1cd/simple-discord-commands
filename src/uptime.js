@@ -1,4 +1,4 @@
-const { Cmd } = require("../../Discord-Commands");
+const { Cmd } = require("discord-made-siple");
 
 module.exports = {
   uptime
