@@ -1,6 +1,6 @@
 {
   "name": "simple-discord-commands",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a set of simple discord commands to make setting up a bot easier",
   "main": "index.js",
   "scripts": {
