@@ -1,8 +1,5 @@
 const { Cmd } = require("discord-made-siple");
 
-module.exports = {
-  uptime
-}
 
 /**
  * @param {String} inp 
@@ -45,3 +42,7 @@ function uptimeCommand(inp, msg, cmd) {
  * @description Command to return the current online time
  */
 let uptime = new Cmd("uptime", 2, uptimeCommand, "current time online")
+
+module.exports = {
+  uptime
+}
