@@ -1,8 +1,5 @@
-const { Cmd } = require("../../Discord-Commands")
+const { Cmd } = require("discord-made-siple")
 
-module.exports = {
-    ping
-}
 /**
  * 
  * @param {String} inp 
@@ -17,3 +14,7 @@ function pingCommand(inp, msg, cmd) {
  * @description ping -- pong
  */
 let ping = new Cmd("ping", null, pingCommand)
+
+module.exports = {
+    ping
+}
