@@ -9,7 +9,6 @@
   "author": "a1cd",
   "license": "MIT",
   "dependencies": {
-    "colorjs.io": "^0.0.3",
     "discord-made-siple": "^1.0.0",
     "discord.js": "^12.5.3"
   }
