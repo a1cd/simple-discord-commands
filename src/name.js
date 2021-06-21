@@ -1,4 +1,4 @@
-const {Cmd} = require('discord-made-siple');
+const {Cmd} = require('command-based-discord');
 const { MessageEmbed, MessageEditOptions} = require('discord.js');
 
 module.exports = new Cmd("nick", 0, (input, msg, command) => {

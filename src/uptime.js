@@ -1,4 +1,4 @@
-const { Cmd } = require("discord-made-siple");
+const { Cmd } = require("command-based-discord");
 
 
 /**
