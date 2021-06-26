@@ -38,9 +38,8 @@ function uptimeCommand(inp, msg, cmd) {
   msg.reply("i have been up for "+msToTime(cmd.bot.uptime))
 }
 /**
- * @type {Cmd}
+ * @returns {Cmd}
  * @description Command to return the current online time
  */
-let uptime = new command({name: "uptime", commandFunction: uptimeCommand, help: "current time online"})
-
-module.exports = () => {return uptime}
+let fun = () => {return new command({name: "uptime", commandFunction: uptimeCommand, help: "current time online"})}
+module.exports = fun

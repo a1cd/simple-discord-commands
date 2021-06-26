@@ -41,7 +41,7 @@ let help = () => {
           const subcommand = command.command.subcommands[i];
           if (hasSubcommands(subcommand)) {
             indexedList.push({command: subcommand, depth: command.depth+1, hasSub: true})
-            let indexedSublist = index({command: subcommand, depth: command.depth + 2})
+            let indexedSublist = index({command: subcommand, depth: command.depth + 1})
             for (let i = 0; i < indexedSublist.length; i++) {
               const subitem = indexedSublist[i];
               indexedList.push(subitem)
@@ -53,7 +53,11 @@ let help = () => {
       }
       return indexedList
     }
-    var list = index({command: cmd.parent, depth: 0})
+    var startList = []
+    if (cmd.parent){
+      startList.push(cmd)
+    }
+    var list = [{command: cmd.parent, depth: 0}].concat(index({command: cmd.parent, depth: 0}))
     for (let i = 0; i < list.length; i++) {
       const indComm = list[i];
       if (i != 0) {
@@ -64,22 +68,32 @@ let help = () => {
     * @param {command} command 
     */
     function commandName(command) {
+      /**
+       * 
+       * @param {command} command 
+       * @param {String} name 
+       * @returns {String}
+       */
       function nameGetter(command, name) {
         if (command.parent) {
-          return nameGetter(command.parent, command.name + " " + name)
+          return nameGetter(command.parent, command.name + " " + name).trim()
         } else {
           return command.name + "" + name
         }
       }
       return nameGetter(command, "")
     }
-    var send = ""
+    var send = "```\n"
     for (let i = 0; i < list.length; i++) {
       const indComm = list[i];
-      let fullCommandName = 
-      send = send + "–".repeat(indComm.depth) + commandName(indComm.command) + " — "+ indComm.command.uuid+ " - " + indComm.command.help + " !!" + indComm.hasSub + "\n"
+      let lComNam = commandName(indComm.command)
+      var formatter = "├"
+      if (hasSubcommands(indComm.command)) {
+        formatter = formatter + "┐"
+      }
+      send = send + "│".repeat(indComm.depth) + formatter + lComNam + "- " + indComm.command.help + "\n"
     }
-    message.channel.send(send)
+    message.channel.send(send+"```")
   }, help: "a great help command"})
 }
 module.exports = help
