@@ -1,4 +1,4 @@
-const { Cmd } = require("command-based-discord");
+const { command } = require("command-based-discord");
 
 
 /**
@@ -41,8 +41,6 @@ function uptimeCommand(inp, msg, cmd) {
  * @type {Cmd}
  * @description Command to return the current online time
  */
-let uptime = new Cmd("uptime", 2, uptimeCommand, "current time online")
+let uptime = new command({name: "uptime", commandFunction: uptimeCommand, help: "current time online"})
 
-module.exports = {
-  uptime
-}
+module.exports = () => {return uptime}

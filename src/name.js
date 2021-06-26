@@ -1,7 +1,9 @@
-const {Cmd} = require('command-based-discord');
+const {command} = require('command-based-discord');
+const Discord = require('discord.js');
 const { MessageEmbed, MessageEditOptions} = require('discord.js');
 
-module.exports = new Cmd("nick", 0, (input, msg, command) => {
+module.exports = () => {
+  return new command({name: "nick", commandFunction: async (input, msg, command) => {
     let setNick = msg.member.setNickname(input, "user ran command: `"+msg.content+"`")
     let authorUrl = msg.author.avatarURL({dynamic: true, size: 512})
     let embed = new MessageEmbed()
@@ -20,4 +22,5 @@ module.exports = new Cmd("nick", 0, (input, msg, command) => {
     .setTimestamp(msg.createdTimestamp)
     .setFooter("*"+msg.author.username+"* changed their name to "+input)
     reply.edit(newEmbed)
-}, "change your name")
+  }, help: "change your name"})
+}

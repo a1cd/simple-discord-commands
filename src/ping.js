@@ -1,4 +1,4 @@
-const { Cmd } = require("command-based-discord")
+const {command} = require("command-based-discord")
 
 /**
  * 
@@ -13,7 +13,7 @@ function pingCommand(inp, msg, cmd) {
  * @type {Cmd}
  * @description ping -- pong
  */
-let ping = new Cmd("ping", null, pingCommand)
+let ping = () => {return new command({name: "ping", help: "*ping*; **pong** - used to test latentcy", commandFunction: pingCommand})}
 
 module.exports = {
     ping
